@@ -1,6 +1,6 @@
 import java.util.List;
 
-
+//hello
 public class StickyNote {
     private String title;
     private List<String> bullets;
@@ -12,22 +12,22 @@ public class StickyNote {
 
     //What the sticky note is for
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     //Select a bullet
     public List<String> getBullets() {
-        return bullets;
+        return this.bullets;
     }
 
     //Add a bullet
     public void addBullet(String bullet) {
-        bullets.add(bullet);
+        this.bullets.add(bullet);
     }
 
     //Get rid of a Bullet
     public boolean removeBullet(String bullet) {
-        return bullets.remove(bullet);
+        return this.bullets.remove(bullet);
     }
 }
 
@@ -39,26 +39,26 @@ class toDoList {
     }
 
     public void stick(StickyNote note) {
-        notes.add(note);
+        this.notes.add(note);
     }
 
     //Remove a note entirely
     public StickyNote rip(StickyNote note) {
-        notes.remove(note);
+        this.notes.remove(note);
         return note;
     }
 
     //A way to get rid of a note
     public void trash() {
-        notes.clear();
+        this.notes.clear();
     }
 
     //A more important bullet
     public void highlight(String title) {
-        for (StickyNote note : notes) {
+        for (StickyNote note : this.notes) {
             if (note.getTitle().equals(title)) {
-                notes.remove(note);
-                notes.add(0, note);
+                this.notes.remove(note);
+                this.notes.add(0, note);
                 break;
             }
         }
@@ -66,7 +66,7 @@ class toDoList {
 
     //To get rid of a bullet
     public boolean strikeOut(String title, String bullet) {
-        for (StickyNote note : notes) {
+        for (StickyNote note : this.notes) {
             if (note.getTitle().equals(title)) {
                 return note.removeBullet(bullet);
             }
@@ -76,7 +76,7 @@ class toDoList {
 
     //To display the bullets for some reason
     public void showNote() {
-        for (StickyNote note : notes) {
+        for (StickyNote note : this.notes) {
             System.out.println("Note: " + note.getTitle());
             for (String bullet : note.getBullets()) {
                 System.out.println(" - " + bullet);
